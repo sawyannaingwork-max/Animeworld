@@ -20,7 +20,8 @@ export default {
       },
 
       boxShadow : {
-        customShadow : "0px 0px 4px 2px #00e0ff"
+        customShadow : "0px 0px 4px 2px #00e0ff",
+        sideBarShadow : "0px 2px 4px 0px #00e0ff"
       }
     },
   },

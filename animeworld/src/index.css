@@ -3,3 +3,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.nav-link 
+{
+    @apply text-primary duration-300 hover:text-secondary ease-linear;
+}
+
+.side-bar 
+{
+    @apply absolute top-0 left-0 h-[100%] min-h-[calc(100vh-70px)] overflow-hidden shadow-sideBarShadow duration-500 ease-linear;
+}

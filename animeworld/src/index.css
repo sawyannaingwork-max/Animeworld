@@ -11,5 +11,45 @@
 
 .side-bar 
 {
-    @apply absolute top-0 left-0 h-[100%] min-h-[calc(100vh-70px)] overflow-hidden shadow-sideBarShadow duration-500 ease-linear;
+    @apply z-10 bg-background absolute top-0 left-0 h-[100%] min-h-[calc(100vh-70px)] overflow-hidden shadow-sideBarShadow duration-500 ease-linear;
+}
+
+.primary-btn 
+{
+    @apply rounded-md py-1 font-itim text-teal-50 my-3 cursor-pointer duration-300 hover:translate-y-[-2px] block w-[90%] max-w-[200px] mx-auto bg-[linear-gradient(45deg,#00E0FF,#FF3D8F)];
+}
+
+.drop-1, .drop-2 
+{
+    @apply absolute w-[1px] h-0 rounded;
+    animation-name: drop;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+.drop-1 
+{
+    @apply top-0 left-0;
+}
+
+.drop-2 
+{
+    @apply top-0 left-[100%]
+}
+
+@keyframes drop {
+    0% 
+    {
+        height: 0px;
+        background-color: #00E0FF;
+        box-shadow: 0px 0px 4px 1px #00e0ff;
+    }
+
+    100% 
+    {
+        height: 100%;
+        background-color: #FF3D8F;
+        box-shadow: 0px 0px 4px 1px #ff3d8f;
+    }
 }

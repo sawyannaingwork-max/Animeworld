@@ -1,4 +1,7 @@
+import {Routes, Route} from "react-router-dom";
+
 import SideBar from "./SideBar";
+import Home from "./Home";
 
 export default function Content({isOpen})
 {
@@ -7,9 +10,9 @@ export default function Content({isOpen})
             <SideBar
                 isOpen = {isOpen}
             />
-            <div>
-                
-            </div>
+            <Routes>
+                <Route path="/" element={<Home />} />
+            </Routes>
         </main>
     )
 }

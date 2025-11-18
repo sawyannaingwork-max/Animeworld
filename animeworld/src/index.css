@@ -11,7 +11,7 @@
 
 .side-bar 
 {
-    @apply z-10 bg-background absolute top-0 left-0 h-[100%] min-h-[calc(100vh-70px)] overflow-hidden shadow-sideBarShadow duration-500 ease-linear;
+    @apply py-5 z-10 bg-background absolute lg:sticky lg:top-[70px] lg:w-[200px] lg:h-full lg:px-2 top-0 left-0 h-[100%] min-h-[calc(100vh-70px)] overflow-hidden shadow-sideBarShadow duration-500 ease-linear;
 }
 
 .primary-btn 
@@ -36,6 +36,16 @@
 .drop-2 
 {
     @apply top-0 left-[100%]
+}
+
+.anime-container 
+{
+    @apply my-4 mx-auto grid grid-cols-1 justify-center gap-10 gap-y-5  md:grid-cols-2 md:justify-between lg:grid-cols-3  xl:grid-cols-4;
+}
+
+.btn 
+{
+    @apply bg-primary px-2 border-2 border-transparent w-[100px] hover:border-primary duration-300 ease-linear py-1 rounded-sm font-itim hover:bg-background hover:text-text;
 }
 
 @keyframes drop {

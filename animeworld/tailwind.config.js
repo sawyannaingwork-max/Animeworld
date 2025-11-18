@@ -21,6 +21,7 @@ export default {
 
       boxShadow : {
         customShadow : "0px 0px 4px 2px #00e0ff",
+        cardShadow : "0px 0px 4px 2px #FF3D8F",
         sideBarShadow : "0px 2px 4px 0px #00e0ff"
       }
     },

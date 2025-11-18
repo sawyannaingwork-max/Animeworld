@@ -17,9 +17,9 @@ export default function Header({isOpen, setIsOpen})
         setIsOpen(!isOpen)
     }
     return (
-        <header className="shadow-customShadow px-3 h-[70px] flex items-center gap-2">
+        <header className="shadow-customShadow px-3 h-[70px] flex items-center gap-2 sticky top-0 z-10 bg-background">
             <img 
-                className="cursor-pointer duration-500 hover:scale-[1.05] ease-linear"
+                className="lg:hidden cursor-pointer duration-500 hover:scale-[1.05] ease-linear"
                 src={menu} 
                 alt="Menu Bar" 
                 onClick={handleClick}

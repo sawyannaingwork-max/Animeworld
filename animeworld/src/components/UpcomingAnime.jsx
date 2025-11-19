@@ -8,6 +8,7 @@ export default function UpcomingAnime()
         <AnimePage 
             url = {url}
             headingText= "Upcoming Anime"
+            type = "Upcoming"
         />
     )
 }

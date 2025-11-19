@@ -8,6 +8,7 @@ export default function FanFavoriteAnime()
         <AnimePage 
             url = {url}
             headingText= "Fan Favorite Anime"
+            type = "Fan Favorite"
         />
     )
 }

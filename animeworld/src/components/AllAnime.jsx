@@ -9,6 +9,7 @@ export default function AllAnime()
         <AnimePage 
             url = {url}
             headingText = {headingText}
+            type = "All"
         />
     )
 }

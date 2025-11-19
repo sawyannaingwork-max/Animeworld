@@ -11,7 +11,7 @@
 
 .side-bar 
 {
-    @apply py-5 z-10 bg-background absolute lg:sticky lg:top-[70px] lg:w-[200px] lg:h-full lg:px-2 top-0 left-0 h-[100%] min-h-[calc(100vh-70px)] overflow-hidden shadow-sideBarShadow duration-500 ease-linear;
+    @apply py-5 z-10 bg-background fixed lg:sticky lg:top-[70px] lg:w-[200px] lg:h-full lg:px-2 top-[70px] left-0 h-[100%] min-h-[calc(100vh-70px)] overflow-hidden shadow-sideBarShadow duration-500 ease-linear;
 }
 
 .primary-btn 

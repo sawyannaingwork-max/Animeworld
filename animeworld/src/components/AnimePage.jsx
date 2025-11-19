@@ -4,14 +4,14 @@ import Loading from "./Loading";
 import AnimeCard from "./AnimeCard";
 import useAnimeQuery from "../custom/useAnimeQuery";
 
-export default function AnimePage({url, headingText})
+export default function AnimePage({url, headingText, type})
 {
     // State for page number
     const [page, setPage] = useState(1);
 
     const fetchUrl = url + `page=${page}`;
 
-    const result = useAnimeQuery(fetchUrl, page);
+    const result = useAnimeQuery(fetchUrl, page, type);
 
     const {animes, hasNext, hasPrevious, isLoading, isError} = result;
 

@@ -8,6 +8,7 @@ import HighRatedAnime from "./HIghRatedAnime";
 import UpcomingAnime from "./UpcomingAnime";
 import CurrentAnime from "./CurrentAnime";
 import FanFavoriteAnime from "./FanFavoriteAnime";
+import Discover from "./Discover";
 
 export default function Content({isOpen})
 {
@@ -18,12 +19,16 @@ export default function Content({isOpen})
             />
             <Routes>
                 <Route path="/" element={<Home />} />
-                <Route path="/all/" element={<AllAnime />} />
-                <Route path="/popular/" element={<MostPopularAnime />} />
-                <Route path="/rating/" element={<HighRatedAnime />} />
-                <Route path="/upcoming/" element={<UpcomingAnime />} />
-                <Route path="/airing" element={<CurrentAnime />} />
-                <Route path="/favorite/" element={<FanFavoriteAnime />} />
+                <Route path="/discover" element={<Discover />} />
+                <Route path="/anime">
+                    <Route index element={<AllAnime />} />
+                    <Route path="popular" element={<MostPopularAnime />} />
+                    <Route path="rating" element={<HighRatedAnime />} />
+                    <Route path="upcoming" element={<UpcomingAnime />} />
+                    <Route path="airing" element={<CurrentAnime />} />
+                    <Route path="favorite" element={<FanFavoriteAnime />} />
+                </Route>
+                
             </Routes>
         </main>
     )

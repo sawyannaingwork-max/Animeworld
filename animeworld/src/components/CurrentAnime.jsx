@@ -8,6 +8,7 @@ export default function CurrentAnime()
         <AnimePage 
             url = {url}
             headingText = "Currenty Airing"
+            type = "Current"
         />
     )
 }

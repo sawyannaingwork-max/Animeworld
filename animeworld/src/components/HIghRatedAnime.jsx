@@ -8,6 +8,7 @@ export default function HighRatedAnime()
         <AnimePage 
             url = {url}
             headingText = "Highest Rated Anime"
+            type = "Highest Rated"
         />
     )
 }

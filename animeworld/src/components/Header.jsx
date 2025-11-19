@@ -4,22 +4,14 @@ export default function Header({isOpen, setIsOpen})
 {   
     function handleClick(e)
     {
-        if (isOpen)
-        {
-            e.target.style.transform = "rotate(0deg)";
-        }
-
-        else 
-        {
-            e.target.style.transform = "rotate(90deg)";
-        }
-
+        e.stopPropagation();
+        
         setIsOpen(!isOpen)
     }
     return (
         <header className="shadow-customShadow px-3 h-[70px] flex items-center gap-2 sticky top-0 z-10 bg-background">
             <img 
-                className="lg:hidden cursor-pointer duration-500 hover:scale-[1.05] ease-linear"
+                className={`lg:hidden cursor-pointer duration-500 hover:scale-[1.05] ease-linear ${isOpen? "rotate-90" : "rotate-0"}`}
                 src={menu} 
                 alt="Menu Bar" 
                 onClick={handleClick}

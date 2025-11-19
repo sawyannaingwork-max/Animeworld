@@ -8,6 +8,7 @@ export default function MostPopularAnime()
         <AnimePage 
             url = {url}
             headingText= "Most Popular Anime"
+            type = "Popular"
         />
     )
 }

@@ -1,25 +1,23 @@
-import { useQuery } from "@tanstack/react-query"
-import Loading from "./Loading";
+import useAnimeDetailQuery from "../custom/useAnimeDetailQuery";
+import Loading from "../components/Loading";
 import AnimeCharacterCard from "../card/AnimeCharacterCard";
+import { useEffect, useRef } from "react";
 
-export default function AnimeCharacterList({id})
+export default function AnimeCharacterList({id, toggle})
 {   
-    const {data : characters, isLoading, isError} = useQuery({
-        queryKey : ["Characters", id],
-        queryFn : async function()
+    const url = `https://api.jikan.moe/v4/anime/${id}/characters`;
+    const {data : characters, isLoading, isError} = useAnimeDetailQuery(id, "Characters", url)
+    const characterRef = useRef();
+    useEffect(function()
+    {
+        if (characterRef.current)
         {
-            const response = await fetch(`https://api.jikan.moe/v4/anime/${id}/characters`);
-
-            if (!response.ok)
-            {
-                throw new Error("Error")
-            }
-
-            const result = await response.json();
-            return result.data;
-        },
-        staleTime : Infinity
-    })
+            window.scrollTo({
+                top : characterRef.current.offsetTop - 60,
+                behavior : "smooth"
+            })
+        }
+    },[toggle])
 
     if (isLoading)
     {
@@ -37,7 +35,7 @@ export default function AnimeCharacterList({id})
     }
 
     return(
-        <div className="my-5">
+        <div ref={characterRef} className="my-5">
             
             <div className="grid-container">
                 {characters.map(function(character)

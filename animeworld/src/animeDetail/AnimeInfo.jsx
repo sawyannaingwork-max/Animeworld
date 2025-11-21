@@ -1,26 +1,13 @@
 import { useQuery } from "@tanstack/react-query"
+import useAnimeDetailQuery from "../custom/useAnimeDetailQuery";
 import { NavLink } from "react-router-dom";
-import Loading from "./Loading";
+import Loading from "../components/Loading";
 
 export default function AnimeInfo({id})
 {
-    const {data, isLoading, isError} = useQuery({
-        queryKey : ["AnimeInfo", id],
-        queryFn : async function()
-        {
-            const response = await fetch(`https://api.jikan.moe/v4/anime/${id}`);
-
-            if (!response.ok)
-            {
-                throw new Error("Error")
-            }
-
-            const result = await response.json();
-            return result.data;
-        },
-        staleTime : Infinity
-    })
-
+    const url = `https://api.jikan.moe/v4/anime/${id}`
+    const {data, isLoading, isError} = useAnimeDetailQuery(id, "Info", url);
+        
     if (isLoading)
     {
         return <Loading />

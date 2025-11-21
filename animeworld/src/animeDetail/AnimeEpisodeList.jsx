@@ -1,30 +1,17 @@
-import { useQuery } from "@tanstack/react-query"
-import Loading from "./Loading";
+import Loading from "../components/Loading";
 import { useState } from "react";
-import AnimeEpisodeCard from "./AnimeEpisodeCard";
+import useAnimeQuery from "../custom/useAnimeQuery";
+import AnimeEpisodeCard from "../card/AnimeEpisodeCard";
 import { Activity } from "react";
 
 export default function AnimeEpisodeList({id})
 {
     const [page, setPage] = useState(1)
     const [isShow, setIsShow] = useState(false);
-    const {data, isLoading, isError} = useQuery({
-        queryKey : ["AnimeEpisodes", id, page],
-        queryFn : async function()
-        {
-            const response = await fetch(`https://api.jikan.moe/v4/anime/${id}/episodes?page=${page}`)
+    
+    const url = `https://api.jikan.moe/v4/anime/${id}/episodes?page=${page}`
 
-            if (!response.ok)
-            {
-                throw new Error("Error")
-            }
-
-            const result = await response.json();
-            return result;
-
-        },
-        staleTime : Infinity
-    })
+    const {animes: episodes, isLoading, isError, hasNext, hasPrevious} = useAnimeQuery(url, page, "Episodes", id)
     
     if (isLoading)
     {
@@ -36,7 +23,7 @@ export default function AnimeEpisodeList({id})
         return <p className="text-text">Something went wrong, try again later.</p>
     }
 
-    if (data.data.length === 0)
+    if (episodes.length === 0)
     {
         return null;
     }
@@ -52,17 +39,17 @@ export default function AnimeEpisodeList({id})
                 <h2 className="text-2xl text-text font-inter">Episodes</h2>
                 <div className="flex justify-between my-2">
                     {
-                        page > 1 && 
+                        hasPrevious && 
                         <button onClick={() => setPage(page - 1)} className="btn">Previous</button>
                     }
                     {
-                        data.pagination.has_next_page && 
+                        hasNext && 
                         <button onClick={() => setPage(page + 1)} className="btn">Next</button>
                     }
                 </div>
                 <div className="grid gapx-2 grid-cols-1 md:gap-6 md:grid-cols-2 md:justify-between lg:grid-cols-3 xl:grid-cols-4">
                     {
-                        data.data.map(function(episode)
+                        episodes.map(function(episode)
                         {
                             return (
                                 <AnimeEpisodeCard 

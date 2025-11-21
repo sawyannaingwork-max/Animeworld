@@ -18,7 +18,7 @@ export default function useAnimeSearchQuery( name, pageNumber)
             return result;
         },
         enabled : Boolean(name),
-        staleTime: 5 * 60 * 1000 
+        staleTime: Infinity
     })
 
     if (!animes)

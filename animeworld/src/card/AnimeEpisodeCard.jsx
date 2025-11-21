@@ -9,7 +9,7 @@ export default function AnimeEpisodeCard({episode})
                 <img src={star} alt="Star" />
                 <h4>{episode.score}</h4>
             </div>
-            <p className="text-background bg-text opacity-70 inline px-2 py-1 rounded-sm">Aired {episode.aired.split("T")[0]}</p>
+            <p className="text-background bg-text opacity-70 inline px-2 py-1 rounded-sm">Aired {episode.aired?.split("T")[0]}</p>
         </section>
     )
 }

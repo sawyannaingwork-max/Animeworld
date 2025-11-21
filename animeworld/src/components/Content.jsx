@@ -22,7 +22,7 @@ export default function Content({isOpen})
                 <Route path="/" element={<Home />} />
                 <Route path="/discover" element={<Discover />} />
                 <Route path="/anime">
-                    <Route index element={<AllAnime />} />
+                    <Route path="all" element={<AllAnime />} />
                     <Route path=":id" element={<AnimeDetail />} />
                     <Route path="popular" element={<MostPopularAnime />} />
                     <Route path="rating" element={<HighRatedAnime />} />

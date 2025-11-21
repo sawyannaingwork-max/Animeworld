@@ -5,7 +5,7 @@ import hinata from "./../assets/hinata.png"
 import makima from "./../assets/makima.png"
 import fubuki from './../assets/fubuki.png'
 
-import ImageCard from "./ImageCard"
+import ImageCard from "./../card/ImageCard"
 import { useState } from "react"
 
 export default function Home()

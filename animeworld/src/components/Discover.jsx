@@ -3,7 +3,7 @@ import useAnimeSearchQuery from "../custom/useAnimeSearchQuery";
 import { useState } from "react";
 
 import Loading from "./Loading";
-import AnimeCard from "./AnimeCard";
+import AnimeCard from "./../card/AnimeCard";
 
 export default function Discover()
 {

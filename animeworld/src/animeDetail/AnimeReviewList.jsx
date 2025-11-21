@@ -1,7 +1,7 @@
 import { useEffect, useState, useRef } from "react"
 import useAnimeQuery from "../custom/useAnimeQuery"
 
-import Loading from "./Loading"
+import Loading from "./../components/Loading"
 import AnimeReview from "../card/AnimeReview";
 
 export default function AnimeReviewList({id})
@@ -16,7 +16,10 @@ export default function AnimeReviewList({id})
     {
         if (elementRef.current)
         {
-            elementRef.current.scrollIntoView({"behavior" : "smooth"})
+            window.scrollTo({
+                top : elementRef.current.offsetTop - 60,
+                behavior : "smooth"
+            })
         }
     }, [reviews])
 

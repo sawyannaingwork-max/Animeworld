@@ -1,25 +1,11 @@
-import { useQuery } from "@tanstack/react-query"
-import Loading from "./Loading";
-import AnimeRecommandCard from "./AnimeRecommandCard";
+import useAnimeDetailQuery from "../custom/useAnimeDetailQuery";
+import Loading from "../components/Loading";
+import AnimeRecommandCard from "../card/AnimeRecommandCard";
 import { useEffect, useRef } from "react";
 export default function AnimeRecommandations({id})
 {
-    const { data:animes, isLoading, isError } = useQuery({
-        queryKey : ["Recommand", id],
-        queryFn : async function()
-        {
-            const response = await fetch(`https://api.jikan.moe/v4/anime/${id}/recommendations`)
-
-            if (!response.ok)
-            {
-                throw new Error("Something went wrong. Try again later");
-            }
-
-            const result = await response.json();
-            return result.data
-        },
-        staleTime : 60 * 1000 * 5
-    })
+    const url = `https://api.jikan.moe/v4/anime/${id}/recommendations`
+    const { data:animes, isLoading, isError } = useAnimeDetailQuery(id, "Recommand", url)
 
     const sliderRef = useRef(null)
 

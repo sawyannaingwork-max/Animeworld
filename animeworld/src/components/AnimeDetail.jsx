@@ -1,15 +1,16 @@
 import { useParams } from "react-router-dom"
-import AnimeInfo from "./AnimeInfo";
-import AnimeEpisodeList from "./AnimeEpisodeList";
-import AnimeRecommandations from "./AnimeRecommandation";
-import AnimeCharacterList from "./AnimeCharacterList";
-import AnimeStaffList from "./AnimeStaffList";
-import AnimeReviewList from "./AnimeReviewList";
-import { Activity, useState } from "react";
+import AnimeInfo from "../animeDetail/AnimeInfo";
+import AnimeEpisodeList from "../animeDetail/AnimeEpisodeList";
+import AnimeRecommandations from "../animeDetail/AnimeRecommandation";
+import AnimeCharacterList from "../animeDetail/AnimeCharacterList";
+import AnimeStaffList from "../animeDetail/AnimeStaffList";
+import AnimeReviewList from "../animeDetail/AnimeReviewList"
+import { Activity, useState} from "react";
 
 export default function AnimeDetail({children})
 {
     const { id } = useParams();
+    const [toggle, setToggle] = useState(true);
     const [isShow, setIsShow] = useState({
         characters : true,
         staffs : false,
@@ -26,6 +27,7 @@ export default function AnimeDetail({children})
                     staffs : false,
                     reviews : false
                 })
+                setToggle(!toggle)
                 break;
             
             case "staffs":
@@ -69,18 +71,21 @@ export default function AnimeDetail({children})
             <Activity mode={isShow.characters? "visible" : "hidden"}>
                 <AnimeCharacterList
                     id = {id}
+                    toggle = {toggle}
                 />
             </Activity>
             
             <Activity mode={isShow.staffs? "visible" : "hidden"}>
                 <AnimeStaffList 
                     id = {id}
+                   
                 />
             </Activity>
             
             <Activity mode={isShow.reviews? "visible" : "hidden"}>
                 <AnimeReviewList 
                     id = {id}
+
                 />
             </Activity>
         </div>

@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 import Loading from "./Loading";
-import AnimeCard from "./AnimeCard";
+import AnimeCard from "./../card/AnimeCard";
 import useAnimeQuery from "../custom/useAnimeQuery";
 
 export default function AnimePage({url, headingText, type})

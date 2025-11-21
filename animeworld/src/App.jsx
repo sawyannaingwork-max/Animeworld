@@ -1,5 +1,6 @@
 import Header from "./components/Header";
 import Content from "./components/Content";
+import ScrollToTop from "./components/ScrollToTop";
 import { useEffect, useState } from "react";
 
 export default function App()
@@ -22,8 +23,10 @@ export default function App()
 
         return () => document.removeEventListener("click", hide)
     }, [isOpen])
+
     return(
         <>
+            <ScrollToTop />
             <Header 
                 isOpen = {isOpen}
                 setIsOpen = {setIsOpen}

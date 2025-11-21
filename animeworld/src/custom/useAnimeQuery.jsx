@@ -1,9 +1,9 @@
 import { useQuery } from "@tanstack/react-query";
 
-export default function useAnimeQuery(url, pageNumber, type)
+export default function useAnimeQuery(url, pageNumber, type, id=null)
 {
     const {data: animes, isLoading, isError} = useQuery({
-        queryKey : [type, pageNumber],
+        queryKey : [type, pageNumber, id],
         queryFn : async function()
         {
             const response = await fetch(url)
@@ -15,7 +15,8 @@ export default function useAnimeQuery(url, pageNumber, type)
 
             const result = await response.json();
             return result
-        }
+        },
+        staleTime : Infinity
     })
 
     if (!animes)

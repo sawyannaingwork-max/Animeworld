@@ -1,0 +1,89 @@
+import { useParams } from "react-router-dom"
+import AnimeInfo from "./AnimeInfo";
+import AnimeEpisodeList from "./AnimeEpisodeList";
+import AnimeRecommandations from "./AnimeRecommandation";
+import AnimeCharacterList from "./AnimeCharacterList";
+import AnimeStaffList from "./AnimeStaffList";
+import AnimeReviewList from "./AnimeReviewList";
+import { Activity, useState } from "react";
+
+export default function AnimeDetail({children})
+{
+    const { id } = useParams();
+    const [isShow, setIsShow] = useState({
+        characters : true,
+        staffs : false,
+        reviews : false
+    })
+
+    function handleClick(type)
+    {
+        switch(type) 
+        {
+            case "characters":
+                setIsShow({
+                    characters : true,
+                    staffs : false,
+                    reviews : false
+                })
+                break;
+            
+            case "staffs":
+                setIsShow({
+                    characters : false,
+                    staffs : true,
+                    reviews : false
+                })
+                break;
+            
+            case "reviews":
+                setIsShow({
+                    characters : false,
+                    staffs : false,
+                    reviews : true
+                })
+                break;
+            
+                
+        }
+    }
+
+    return(
+        <div className="w-[90%] mx-auto lg:w-[calc(100%-250px)]">
+            <AnimeInfo 
+                id = {id}
+            />
+            <AnimeEpisodeList 
+                id = {id}
+            />
+            <AnimeRecommandations 
+                id = {id}
+            />
+
+            <div className="sticky top-[70px] z-10 bg-background rounded-md grid grid-cols-3 shadow-customShadow gap-0  border-2 border-primary">
+                <button onClick={() => handleClick("characters")} className={`h-full border-2 border-primary py-1 text-text bg-transparent hover:text-secondary ${isShow.characters? "active" : ""}`}>Characters</button>
+                <button onClick={() => handleClick("staffs")} className={`h-full border-2 border-primary py-1 text-text bg-transparent hover:text-secondary ${isShow.staffs? "active" : ""}`}>Staff</button>
+                <button onClick={() => handleClick("reviews")} className={`h-full border-2 border-primary py-1 text-text bg-transparent hover:text-secondary ${isShow.reviews? "active" : ""}`}>Reviews</button>
+            </div>
+            
+            <Activity mode={isShow.characters? "visible" : "hidden"}>
+                <AnimeCharacterList
+                    id = {id}
+                />
+            </Activity>
+            
+            <Activity mode={isShow.staffs? "visible" : "hidden"}>
+                <AnimeStaffList 
+                    id = {id}
+                />
+            </Activity>
+            
+            <Activity mode={isShow.reviews? "visible" : "hidden"}>
+                <AnimeReviewList 
+                    id = {id}
+                />
+            </Activity>
+        </div>
+    )
+
+}

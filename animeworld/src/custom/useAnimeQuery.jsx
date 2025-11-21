@@ -34,6 +34,6 @@ export default function useAnimeQuery(url, pageNumber, type)
         hasNext : animes.pagination.has_next_page,
         isLoading : isLoading,
         isError : isError,
-        hasPrevious :animes.pagination.current_page > 1? true : false
+        hasPrevious : pageNumber > 1? true : false
     }
 } 

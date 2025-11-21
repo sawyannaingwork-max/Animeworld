@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import { NavLink } from "react-router-dom";
 export default function AnimeCard({anime})
 {
     // State for playing trailer
@@ -56,7 +56,7 @@ export default function AnimeCard({anime})
             <span className="bg-text opacity-70 rounded-md py-1 px-2">
                 {anime.status}
             </span>
-            <button className="hover:scale-[1.05] duration-300 ease-linear font-itim text-text mx-3 bg-[linear-gradient(45deg,#00E0FF,#FF3D8F)] px-2 py-1 rounded-md">Look Detail</button>
+            <NavLink to={`/anime/${anime.mal_id}`} className="hover:scale-[1.05] duration-300 ease-linear font-itim text-text mx-3 bg-[linear-gradient(45deg,#00E0FF,#FF3D8F)] px-2 py-1 rounded-md">Look Detail</NavLink>
         </section>
     )
 }

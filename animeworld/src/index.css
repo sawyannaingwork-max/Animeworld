@@ -28,6 +28,11 @@
     animation-timing-function: linear;
 }
 
+.active 
+{
+    @apply text-secondary;
+}
+
 .drop-1 
 {
     @apply top-0 left-0;
@@ -48,6 +53,33 @@
     @apply bg-primary px-2 border-2 border-transparent w-[100px] hover:border-primary duration-300 ease-linear py-1 rounded-sm font-itim hover:bg-background hover:text-text;
 }
 
+.grid-container 
+{
+    @apply grid grid-cols-2 justify-between gap-5 gap-y-10 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6;
+    
+}
+.list-item 
+{
+    @apply px-2 py-1 text-center bg-primary opacity-70 font-roboto rounded-md;
+}
+
+
+
+.list-link 
+{
+    @apply text-secondary font-roboto duration-300 ease-linear hover:text-primary;
+}
+
+.slide 
+{
+    animation-name: slide;
+    animation-duration: 5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+
 @keyframes drop {
     0% 
     {
@@ -63,3 +95,4 @@
         box-shadow: 0px 0px 4px 1px #ff3d8f;
     }
 }
+

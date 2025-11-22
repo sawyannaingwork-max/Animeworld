@@ -26,7 +26,7 @@ export default function Home()
         )
     })
     return (
-        <div className="w-[90%] max-w-[900px] mx-auto py-5 text-center">
+        <div className="mx-auto text-center">
             <h1 className="text-3xl text-text">All Your Favorite Anime in One Place</h1>
             <p className="text-primary py-2">
                 A place where you can dive in the world of anime, from recommandations to filtering. 

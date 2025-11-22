@@ -51,7 +51,7 @@ export default function AnimeDetail({children})
     }
 
     return(
-        <div className="w-[90%] mx-auto lg:w-[calc(100%-250px)]">
+        <div>
             <AnimeInfo 
                 id = {id}
             />

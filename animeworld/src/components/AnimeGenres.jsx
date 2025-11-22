@@ -1,6 +1,7 @@
 import { useQuery } from "@tanstack/react-query"
 import Loading from "./Loading";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function AnimeGenres()
 {
@@ -24,6 +25,7 @@ export default function AnimeGenres()
 
     const [showGenres, setShowGenres] = useState(genres);
     const [searchValue, setSearchValue] = useState("");
+    const navigate = useNavigate();
 
     function handleChange(event)
     {
@@ -43,6 +45,12 @@ export default function AnimeGenres()
         }
     }
 
+    function handleClick(name, id)
+    {
+        navigate(`${name}`, {
+            state : id
+        })
+    }
     if (isLoading)
     {
         return <Loading />
@@ -57,7 +65,7 @@ export default function AnimeGenres()
     const genreList = showGenres.map(function(genre)
     {
         return(
-            <section key={genre.mal_id} className="shadow-customShadow rounded-sm hover:scale-[1.1] duration-300 ease-linear cursor-pointer genre-item py-5 text-center text-text">
+            <section onClick={() => handleClick(genre.name, genre.mal_id)} key={genre.mal_id} className="shadow-customShadow rounded-sm hover:scale-[1.1] duration-300 ease-linear cursor-pointer genre-item py-5 text-center text-text">
                 <h2>{genre.name}</h2>
                 <p>{genre.count}</p>
             </section>
@@ -65,18 +73,19 @@ export default function AnimeGenres()
     })
 
     return(
-        <div className="mt-5">
-            
+        <div>
+            <h1 className="text-3xl text-text font-inter text-center pb-4">Anime Genres</h1>
             <input
-                className="block rounded-md hover:border-none hover:outline-none w-[90%] mx-auto bg-transparent shadow-customShadow text-text px-2 py-1 text-sm"
+                className="block rounded-md hover:border-none hover:outline-none w-full bg-transparent shadow-customShadow text-text px-2 py-1 text-sm"
                 type="text" 
                 name="genre" 
                 id="genre" 
+                placeholder="Search Genre"
                 value = {searchValue}
                 onChange={handleChange}
             />
             
-            <div className="my-5 w-[90%] mx-auto lg:w-[calc(100%-250px)] grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-5">
+            <div className="my-5 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-5">
                 {genreList}
             </div>
         </div>

@@ -38,7 +38,7 @@ export default function AnimePage({url, headingText, type})
     })
 
     return(
-        <div className="py-5 w-[90%] mx-auto lg:w-[calc(100%-250px)]">
+        <div>
             <h1 className="text-3xl text-text text-center">{headingText}</h1>
             <div className="anime-container">
                 {animeList}

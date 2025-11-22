@@ -14,6 +14,8 @@ import Discover from "./Discover";
 import AnimeDetail from "./AnimeDetail";
 import AnimeCharacterDetail from "./AnimeCharacterDetail";
 import AnimeGenres from "./AnimeGenres";
+import AnimeGenreItem from "./AnimeGenreItem";
+import AnimeProducer from "./AnimeProducer";
 
 export default function Content({isOpen})
 {
@@ -28,7 +30,8 @@ export default function Content({isOpen})
             <SideBar
                 isOpen = {isOpen}
             />
-            <Routes>
+            <div className="w-[90%] mx-auto lg:w-[calc(100%-250px)] my-4">
+                <Routes>
                 <Route path="/" element={<Home />} />
                 <Route 
                     path="/discover" 
@@ -48,6 +51,7 @@ export default function Content({isOpen})
                 />
                 <Route path="/anime">
                     <Route path="genres" element = {<AnimeGenres />} />
+                    <Route path="genres/:genre" element={<AnimeGenreItem />} />
                     <Route path="all" element={<AllAnime />} />
                     <Route path=":id" element={<AnimeDetail />} />
                     <Route path="popular" element={<MostPopularAnime />} />
@@ -57,7 +61,9 @@ export default function Content({isOpen})
                     <Route path="favorite" element={<FanFavoriteAnime />} />
                     <Route path="character/:id" element={<AnimeCharacterDetail />} />
                 </Route>
-            </Routes>
+                <Route path="/producer/:name" element={<AnimeProducer />} />
+                </Routes>
+            </div>
         </main>
     )
 }

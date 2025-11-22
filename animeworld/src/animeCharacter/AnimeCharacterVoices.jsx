@@ -1,7 +1,5 @@
 export default function AnimeCharacterVoices({voices})
 {
-    console.log(voices[0])
-    
     return(
         <>
             <h2 className="text-text text-2xl font-inter pb-2">Voice Actors</h2>

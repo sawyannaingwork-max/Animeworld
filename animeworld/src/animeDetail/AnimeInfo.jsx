@@ -84,7 +84,7 @@ export default function AnimeInfo({id})
                     {
                         data.producers.map(function(producer)
                         {
-                            return <li key={producer.mal_id}><NavLink className="list-link" to="#">{producer.name}</NavLink></li>
+                            return <li key={producer.mal_id}><NavLink className="list-link" to={`/producer/${producer.name}`} state={producer.mal_id}>{producer.name}</NavLink></li>
                         })
                     }
                 </ul>
@@ -96,7 +96,7 @@ export default function AnimeInfo({id})
                     {
                         data.licensors.map(function(licensor)
                         {
-                            return <li key={licensor.mal_id}><NavLink className="list-link" to="#">{licensor.name}</NavLink></li>
+                            return <li key={licensor.mal_id}><NavLink className="list-link" to={`/producer/${licensor.name}`} state={licensor.mal_id}>{licensor.name}</NavLink></li>
                         })
                     }
                 </ul>
@@ -108,7 +108,7 @@ export default function AnimeInfo({id})
                     {
                         data.studios.map(function(studio)
                         {
-                            return <li key={studio.mal_id}><NavLink className="list-link" to="#">{studio.name}</NavLink></li>
+                            return <li key={studio.mal_id}><NavLink className="list-link" to={`/producer/${studio.name}`} state={studio.mal_id}>{studio.name}</NavLink></li>
                         })
                     }
                 </ul>

@@ -25,7 +25,7 @@ export default function AnimeCharacterDetail()
     }
 
     return(
-        <div className="max-w-[90%] mx-auto lg:w-[calc(100%-250px)]">
+        <div>
             <AnimeCharacterInfo 
                 image = {character.images.jpg.image_url}
                 name = {character.name}
@@ -36,9 +36,12 @@ export default function AnimeCharacterDetail()
             <AnimeCharacterAnime 
                 animeList = {character.anime}
             />
-            <AnimeCharacterVoices 
-                voices = {character.voices}
-            />
+            {   
+                character.voices.length > 0 &&
+                <AnimeCharacterVoices 
+                    voices = {character.voices}
+                />
+            }
         </div>
     )
 

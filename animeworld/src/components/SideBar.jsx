@@ -19,7 +19,6 @@ export default function SideBar({isOpen})
                         <li className="py-1"><NavLink className="nav-link text-lg" to="/anime/favorite">Fan Favorite</NavLink></li>
                     </ul>
                 </li>
-                <li className="text-xl py-2"><a className="nav-link" href="#">Manga</a></li>
             </ul>
         </nav>
     )

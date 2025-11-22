@@ -9,7 +9,7 @@ export default function AnimeProducer()
     const id = useLocation().state;
 
     // url to get animes produced by id producer
-    const url = `https://api.jikan.moe/v4/anime?producers=${id}`
+    const url = `https://api.jikan.moe/v4/anime?producers=${id}&`
 
     const {data, isLoading, isError} = useQuery({
         queryKey : [name],

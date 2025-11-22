@@ -7,7 +7,7 @@ export default function AnimeGenreItem()
     const {genre} = useParams();
     const id = location.state;
 
-    const url = `https://api.jikan.moe/v4/anime?genres=${id}`
+    const url = `https://api.jikan.moe/v4/anime?genres=${id}&`
 
     return(
         <AnimePage 

@@ -13,6 +13,7 @@ import FanFavoriteAnime from "./FanFavoriteAnime";
 import Discover from "./Discover";
 import AnimeDetail from "./AnimeDetail";
 import AnimeCharacterDetail from "./AnimeCharacterDetail";
+import AnimeGenres from "./AnimeGenres";
 
 export default function Content({isOpen})
 {
@@ -46,6 +47,7 @@ export default function Content({isOpen})
                             />} 
                 />
                 <Route path="/anime">
+                    <Route path="genres" element = {<AnimeGenres />} />
                     <Route path="all" element={<AllAnime />} />
                     <Route path=":id" element={<AnimeDetail />} />
                     <Route path="popular" element={<MostPopularAnime />} />

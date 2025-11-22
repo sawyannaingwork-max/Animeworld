@@ -10,6 +10,7 @@ export default function SideBar({isOpen})
                 <li className="text-xl py-2 text-text">
                     Anime
                     <ul className="px-3">
+                        <li className="py-1"><NavLink className="nav-link text-lg" to="/anime/genres">Genres</NavLink></li>
                         <li className="py-1"><NavLink className="nav-link text-lg" to="/anime/all">All</NavLink></li>
                         <li className="py-1"><NavLink className="nav-link text-lg" to="/anime/popular">Popular</NavLink></li>
                         <li className="py-1"><NavLink className="nav-link text-lg" to="/anime/rating">High Rated</NavLink></li>

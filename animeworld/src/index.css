@@ -63,7 +63,13 @@
     @apply px-2 py-1 text-center bg-primary opacity-70 font-roboto rounded-md;
 }
 
-
+.genre-item 
+{
+    background: linear-gradient(45deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)), url(./assets/background.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
 
 .list-link 
 {

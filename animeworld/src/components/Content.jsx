@@ -10,6 +10,7 @@ import CurrentAnime from "./CurrentAnime";
 import FanFavoriteAnime from "./FanFavoriteAnime";
 import Discover from "./Discover";
 import AnimeDetail from "./AnimeDetail";
+import AnimeCharacterDetail from "./AnimeCharacterDetail";
 
 export default function Content({isOpen})
 {
@@ -29,6 +30,7 @@ export default function Content({isOpen})
                     <Route path="upcoming" element={<UpcomingAnime />} />
                     <Route path="airing" element={<CurrentAnime />} />
                     <Route path="favorite" element={<FanFavoriteAnime />} />
+                    <Route path="character/:id" element={<AnimeCharacterDetail />} />
                 </Route>
             </Routes>
         </main>

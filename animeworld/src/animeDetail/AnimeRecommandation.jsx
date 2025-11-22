@@ -9,6 +9,8 @@ export default function AnimeRecommandations({id})
 
     const sliderRef = useRef(null)
 
+    let animation;
+
     useEffect(function()
     {
         if (!sliderRef.current)
@@ -23,7 +25,7 @@ export default function AnimeRecommandations({id})
         const count = sliderRef.current.children.length;
         const move = (150 + 20) * count - 170;
 
-        const animation = sliderRef.current.animate(
+        animation = sliderRef.current.animate(
             [
                 {"transform" : `translateX(-${move}px)`}
             ],
@@ -35,7 +37,29 @@ export default function AnimeRecommandations({id})
             }
         )
 
+        function play()
+        {
+            animation.play();
+        }
+
+        function pause()
+        {
+            animation.pause();
+        }
+
+        parent.addEventListener("mouseenter", pause)
+
+        parent.addEventListener("mouseleave", play)
+
+        return function()
+        {
+            parent.removeEventListener("mouseenter", pause);
+            parent.removeEventListener("mouseleave", play);
+        }
+
     }, [animes])
+
+    
 
     if (isLoading)
     {

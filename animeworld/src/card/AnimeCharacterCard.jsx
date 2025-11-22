@@ -1,7 +1,10 @@
+import { useNavigate } from "react-router-dom"
+
 export default function AnimeCharacterCard({character})
-{
+{   
+    const navigate = useNavigate();
     return(
-        <section>
+        <section onClick={() => navigate(`/anime/character/${character.character.mal_id}`)}>
             <img 
                 className="w-full aspect-square object-cover object-center rounded-md shadow-cardShadow mb-1"
                 src={character.character.images.jpg.image_url} 

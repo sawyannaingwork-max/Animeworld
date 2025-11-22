@@ -1,19 +1,9 @@
-import { useSearchParams } from "react-router-dom"
-import useAnimeSearchQuery from "../custom/useAnimeSearchQuery";
-import { useState } from "react";
-
 import Loading from "./Loading";
 import AnimeCard from "./../card/AnimeCard";
 
-export default function Discover()
+export default function Discover({searchParam, setSearchParam, searchValue, setSearchValue, pageNumber, setPageNumber, animes,isFetching, isError, hasPrevious, hasNext})
 {
-    const [searchParam, setSearchParam] = useSearchParams({name : ""})
-    const [searchValue, setSearchValue] = useState("")
-    const [pageNumber, setPageNumber] = useState(1)
-
     const name = searchParam.get("name");
-
-    const {animes, isFetching, isError, hasNext, hasPrevious} = useAnimeSearchQuery(searchValue, pageNumber)
 
     let content; 
 
@@ -70,7 +60,7 @@ export default function Discover()
 
 
     return(
-        <div div className="py-5 w-[90%] mx-auto lg:w-[calc(100%-250px)]">
+        <div className="py-5 w-[90%] mx-auto lg:w-[calc(100%-250px)]">
             <h1 className="text-3xl font-inter text-text py-5 text-center">Search Anime</h1>
             <form 
                 onSubmit={handleSubmit}
